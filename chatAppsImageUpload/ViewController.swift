@@ -17,15 +17,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ref = Database.database().reference() //ডাটাবেসকে রেফেরাঞ্চে আসসাইন করে দিলাম
-        self.saveFIRData()
+       // self.saveFIRData()
     }
 
     @IBAction func buttonSubmitClick(_ sender: UIButton) {
+        self.saveFIRData()
     }
     
     
     func saveFIRData(){
-        self.ref.child("chatApps").childByAutoId().setValue("JYOTI")
+        let  dict = ["name" : "Jyoti", "text": txtField.text!]
+        
+        self.ref.child("chatApps").childByAutoId().setValue(dict)
     }
 }
 
